@@ -1,21 +1,23 @@
 <?php
 
 /**
- * Module for Contao CMS
- * Copyright (c) 2008-2019 Marko Cupic
- * @package newsletter-notify-on-subscription-activation-bundle
- * @author Marko Cupic m.cupic@gmx.ch, 2019
+ * Send notifications on newsletter subscription activation
+ * extension for Contao Open Source CMS
+ *
+ * @copyright  Copyright (c) 2019, markocupic
+ * @author     markocupic <m.cupic@gmx.ch>
  * @link https://github.com/markocupic/newsletter-notify-on-subscription-activation-bundle
+ * @license    MIT
  */
 
-namespace Markocupic\NewsletterNotifyOnSubscriptionBundle;
+namespace Markocupic\NewsletterNotifyOnSubscriptionActivationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class MarkocupicNewsletterNotifyOnSubscriptionBundle
- * @package Markocupic\NewsletterNotifyOnSubscriptionBundle
+ * Class MarkocupicNewsletterNotifyOnSubscriptionActivationBundle
+ * @package Markocupic\NewsletterNotifyOnSubscriptionActivationBundle
  */
-class MarkocupicNewsletterNotifyOnSubscriptionBundle extends Bundle
+class MarkocupicNewsletterNotifyOnSubscriptionActivationBundle extends Bundle
 {
 }
