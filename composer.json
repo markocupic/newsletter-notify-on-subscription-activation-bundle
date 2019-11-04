@@ -28,11 +28,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Markocupic\\NewsletterNotifyOnSubscriptionBundle\\": "src/"
+      "Markocupic\\NewsletterNotifyOnSubscriptionActivationBundle\\": "src/"
     },
     "classmap": [
-      "src/Resources/contao",
-      "src/Services"
+      "src/Resources/contao"
     ],
     "exclude-from-classmap": [
       "src/Resources/contao/config",
@@ -41,7 +40,7 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "Markocupic\\NewsletterNotifyOnSubscriptionBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "Markocupic\\NewsletterNotifyOnSubscriptionActivationBundle\\ContaoManager\\Plugin"
   }
 }
 
