@@ -1,0 +1,47 @@
+{
+  "name": "markocupic/newsletter-notify-on-subscription-activation-bundle",
+  "description": "Send notifications on newsletter subscription activation.",
+  "keywords": [
+    "newsletter",
+    "notification",
+    "subscription",
+    "activation"
+  ],
+  "type": "contao-module",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "Marko Cupic",
+      "email": "m.cupic@gmx.ch",
+      "homepage": "https://github.com/markocupic",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/markocupic/newsletter-notify-on-subscription-activation-bundle/issues",
+    "source": "https://github.com/markocupic/newsletter-notify-on-subscription-activation-bundle"
+  },
+  "require": {
+    "php": ">=7.1",
+    "contao/core-bundle": "^4.4",
+    "terminal42/notification_center": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Markocupic\\NewsletterNotifyOnSubscriptionBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao",
+      "src/Services"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config",
+      "src/Resources/contao/dca",
+      "src/Resources/contao/languages"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Markocupic\\NewsletterNotifyOnSubscriptionBundle\\ContaoManager\\Plugin"
+  }
+}
+
