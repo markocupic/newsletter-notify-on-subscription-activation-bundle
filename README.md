@@ -25,7 +25,7 @@ Im Modul Newsletter müssen Sie nun lediglich noch die Benachrichtigung aktivier
 Eine Beispielklasse für die BEnutzung des Hooks findest du hier:
 vendor/markocupic/newsletter-notify-on-subscription-activation-bundle/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php
 
-´´´php
+```php
 <?php
 
 /**
@@ -66,16 +66,16 @@ class BeforeNotifyOnSubscriptionActivation
 
 }
 
-´´´
+```
 
 Den Hook wie immer in der config.php des eigenen Moduls registrieren.
 
-´´´php
+```php
 
 // config.php
 $GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation'][] = array('Markocupic\BeforeNotifyOnSubscriptionActivation','beforeNotifyOnSubscriptionActivation');
 
 
-´´´
+```
 
 
