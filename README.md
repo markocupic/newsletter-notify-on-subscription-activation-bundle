@@ -22,7 +22,7 @@ Im Modul Newsletter müssen Sie nun lediglich noch die Benachrichtigung aktivier
 
 ## Optional per Hook die tokens anpassen
 
-Eine Beispielklasse für die Benutzung des Hooks findest du [hier](https://github.com/markocupic/newsletter-notify-on-subscription-activation-bundle/blob/master/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php):
+Eine Beispielklasse für die Benutzung des Hooks findest du [hier](src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php):
 
 
 ```php
