@@ -26,7 +26,7 @@ Eine Beispielklasse für die BEnutzung des Hooks findest du hier:
 vendor/markocupic/newsletter-notify-on-subscription-activation-bundle/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php
 
 ```php
-<?php
+
 
 /**
  * Send notifications on newsletter subscription activation
@@ -77,5 +77,4 @@ $GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation'][] = array('Markocup
 
 
 ```
-
 
