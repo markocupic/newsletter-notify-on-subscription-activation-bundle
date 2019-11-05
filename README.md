@@ -20,13 +20,13 @@ Mächten Sie den Titel des Newsletter-Channels ausgeben, benutzen Sie bitte ##ne
 
 Im Modul Newsletter müssen Sie nun lediglich noch die Benachrichtigung aktivieren.
 
-## Per Hook die tokens anpassen
+## Optional per Hook die tokens anpassen
 
-Eine Beispielklasse für die BEnutzung des Hooks findest du hier:
+Eine Beispielklasse für die Benutzung des Hooks findest du hier:
 vendor/markocupic/newsletter-notify-on-subscription-activation-bundle/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php
 
 ```php
-
+<?php
 
 /**
  * Send notifications on newsletter subscription activation
@@ -68,7 +68,7 @@ class BeforeNotifyOnSubscriptionActivation
 
 ```
 
-Den Hook wie immer in der config.php des eigenen Moduls registrieren.
+Den Hook wie immer contaotypisch in der config.php des eigenen Moduls registrieren.
 
 ```php
 
