@@ -13,6 +13,7 @@
 namespace Markocupic;
 
 use Contao\Config;
+use Contao\Controller;
 use Contao\Date;
 use Contao\NewsletterChannelModel;
 use Contao\NewsletterRecipientsModel;
@@ -38,12 +39,16 @@ class ActivateRecipient
         {
             foreach ($arrCids as $channelId)
             {
+                $subscriberId = null;
+
                 if (($objChannel = NewsletterChannelModel::findByPk($channelId)) !== null)
                 {
                     if ($objChannel->notifyOnSubscriptionActivation)
                     {
                         if (($objNotification = Notification::findByPk($objChannel->onSubscriptionActivationNotification)) !== null)
                         {
+                            $subscriberId = null;
+
                             // Fill newsletter channel token from tl_newsletter_channel
                             $arrTokens = array();
                             $arrRow = $objChannel->row();
@@ -51,33 +56,55 @@ class ActivateRecipient
                             {
                                 $arrTokens['newsletter_' . $k] = html_entity_decode($v);
                             }
+                            // Convert timestamp to date
+                            $arrTokens['newsletter_tstamp'] = Date::parse(Config::get('datimFormat'), $objChannel->tstamp);
 
                             // Fill recipient token from tl_newsletter_recipients
                             foreach ($arrAdd as $id)
                             {
-                                if (($objRecipient = NewsletterRecipientsModel::findByPk($id)) !== null)
+                                if (($objSubscriber = NewsletterRecipientsModel::findByPk($id)) !== null)
                                 {
-                                    if ($objRecipient->pid === $objChannel->id)
+                                    if ($objSubscriber->pid === $objChannel->id)
                                     {
-                                        $arrRow = $objRecipient->row();
-                                        foreach ($arrRow as $k => $v)
+                                        $subscriberId = $objSubscriber->id;
+                                        foreach ($objSubscriber->row() as $k => $v)
                                         {
                                             $arrTokens['recipient_' . $k] = html_entity_decode($v);
                                         }
-                                        // Handle timestamps
+                                        // Convert timestamps to date
                                         $arrTimestamps = array('tstamp', 'addedOn');
                                         foreach ($arrTimestamps as $k)
                                         {
                                             if ($arrTokens['recipient_' . $k] != '')
                                             {
-                                                $arrTokens['recipient_' . $k] = Date::parse(Config::get('datimFormat'), $objRecipient->{$k});
+                                                $arrTokens['recipient_' . $k] = Date::parse(Config::get('datimFormat'), $objSubscriber->{$k});
                                             }
                                         }
                                     }
                                 }
                             }
 
-                            $objNotification->send($arrTokens, $objPage->language);
+                            $blnSend = true;
+                            if ($objNotification !== null && ($objSubscriber = NewsletterRecipientsModel::findByPk($subscriberId) !== null))
+                            {
+                                // HOOK: add custom tokens
+                                if (isset($GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation']) && \is_array($GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation']))
+                                {
+                                    foreach ($GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation'] as $callback)
+                                    {
+                                        if ($blnSend)
+                                        {
+                                            $objHook = Controller::importStatic($callback[0]);
+                                            // Pass $arrTokens by reference!
+                                            $blnSend = $objHook->{$callback[1]}($arrTokens, $objSubscriber, $objChannel, $objNotification);
+                                        }
+                                    }
+                                }
+                                if ($blnSend)
+                                {
+                                    $objNotification->send($arrTokens, $objPage->language);
+                                }
+                            }
                         }
                     }
                 }

@@ -20,4 +20,62 @@ Mächten Sie den Titel des Newsletter-Channels ausgeben, benutzen Sie bitte ##ne
 
 Im Modul Newsletter müssen Sie nun lediglich noch die Benachrichtigung aktivieren.
 
-Viel Spass!
+## Per Hook die tokens anpassen
+
+Eine Beispielklasse für die BEnutzung des Hooks findest du hier:
+vendor/markocupic/newsletter-notify-on-subscription-activation-bundle/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php
+
+´´´php
+<?php
+
+/**
+ * Send notifications on newsletter subscription activation
+ * extension for Contao Open Source CMS
+ *
+ * @copyright  Copyright (c) 2019, markocupic
+ * @author     markocupic <m.cupic@gmx.ch>
+ * @link https://github.com/markocupic/newsletter-notify-on-subscription-activation-bundle
+ * @license    MIT
+ */
+
+namespace Markocupic;
+
+/**
+ * Class BeforeNotifyOnSubscriptionActivation
+ * @package Markocupic
+ */
+class BeforeNotifyOnSubscriptionActivation
+{
+
+    /**
+     * Pass $arrTokens by reference!!!
+     * @param $arrTokens
+     * @param $objSubscriber
+     * @param $objChannel
+     * @param $objNotification
+     * @return bool
+     */
+    public function beforeNotifyOnSubscriptionActivation(&$arrTokens, $objSubscriber, $objChannel, $objNotification)
+    {
+        $arrTokens['recipient_email'] = 'hans_muster@foofoo.bar';
+        $arrTokens['newsletter_title'] = 'My incredible newsletter';
+
+        // Return true, if notification should be sent
+        return true;
+    }
+
+}
+
+´´´
+
+Den Hook wie immer in der config.php des eigenen Moduls registrieren.
+
+´´´php
+
+// config.php
+$GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation'][] = array('Markocupic\BeforeNotifyOnSubscriptionActivation','beforeNotifyOnSubscriptionActivation');
+
+
+´´´
+
+

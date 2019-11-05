@@ -31,3 +31,9 @@ $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['newsletter-notify'] = arra
         'email_html'           => array('recipient_email', 'recipient_*', 'newsletter_*'),
     )
 );
+
+
+// Hook example @see vendor/markocupic/newsletter-notify-on-subscription-activation-bundle/src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php
+//$GLOBALS['TL_HOOKS']['beforeNotifyOnSubscriptionActivation'][] = array('Markocupic\BeforeNotifyOnSubscriptionActivation','beforeNotifyOnSubscriptionActivation');
+
+
