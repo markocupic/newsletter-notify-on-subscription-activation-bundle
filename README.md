@@ -12,7 +12,7 @@ Die Benachrichtigungen werden versendet, sobald der Besucher seine Newsletter-An
 composer require markocupic/newsletter-notify-on-subscription-activation-bundle
 ```
 
-## Benachrichtigung einrichten
+## Benachrichtigung einrichten (Notification Center)
 Erstellen Sie im Backend-Modul "Benachrichtigungen" eine Benachrichtigung des Typs "Newsletter-Benachrichtigungen -> Newsletter Anmeldung Aktivierung"
 Als token stehen Ihnen ##recipient_*## und ##newsletter_*## zur Verfügung. 
 Möchten Sie die E-Mail-Adresse des neuen Abonnenten ausgeben, so benutzen Sie ##recipient_*##, etc.
