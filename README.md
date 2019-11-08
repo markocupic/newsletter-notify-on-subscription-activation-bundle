@@ -1,4 +1,4 @@
-# Benachrichtigung bei Newsletter Aktivierung 
+# Benachrichtigung bei Newsletter Aktivierung (E-Mail-Aktivierungslink)
 
 ## Frontend Modul für Contao >=4.4
 
