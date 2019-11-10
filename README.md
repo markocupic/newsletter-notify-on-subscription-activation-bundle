@@ -14,16 +14,15 @@ composer require markocupic/newsletter-notify-on-subscription-activation-bundle
 
 ## Benachrichtigung einrichten (Notification Center)
 Erstellen Sie im Backend-Modul "Benachrichtigungen" eine Benachrichtigung des Typs "Newsletter-Benachrichtigungen -> Newsletter Anmeldung Aktivierung"
-Als token stehen Ihnen ##recipient_*## und ##newsletter_*## zur Verfügung. 
-Möchten Sie die E-Mail-Adresse des neuen Abonnenten ausgeben, so benutzen Sie ##recipient_*##, etc.
-Mächten Sie den Titel des Newsletter-Channels ausgeben, benutzen Sie bitte ##newsletter_title##, etc. 
+Als token stehen ##recipient_*## und ##newsletter_*## zur Verfügung. 
+Mit ##recipient_email## lässt sich im NC die E-Mail-Adresse des neuen Abonnenten ausgeben. Weitere Felder können über ##recipient_*## ausgegeben werden.
+Mit ##newsletter_title## lässt sich im NC der Titel des Newsletter-Channels  ausgeben. Weitere Felder können über ##newsletter_*## ausgegeben werden.
 
 Im Modul Newsletter müssen Sie nun lediglich noch die Benachrichtigung aktivieren.
 
 ## Optional per Hook die tokens anpassen
-
-Eine Beispielklasse für die Benutzung des Hooks findest du [hier](src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php):
-
+Eine Beispielklasse für die Benutzung des Hooks findet sich hier [hier](src/Resources/contao/hooks/BeforeNotifyOnSubscriptionActivation.php):
+Damit lassen sich beispielsweise die Tokens weiter an eigene Bedürfnisse anpassen.
 
 ```php
 <?php
