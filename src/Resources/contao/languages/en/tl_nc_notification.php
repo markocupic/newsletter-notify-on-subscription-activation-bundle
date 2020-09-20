@@ -10,21 +10,5 @@
  * @license    MIT
  */
 
-
-/**
- * Register the namespaces
- */
-ClassLoader::addNamespaces(array
-(
-	'Markocupic',
-));
-
-
-/**
- * Register the classes
- */
-ClassLoader::addClasses(array
-(
-	// Classes
-	'Markocupic\ActivateRecipient' => 'system/modules/newsletter-notify-on-subscription-activation-bundle/hooks/ActivateRecipient.php',
-));
+$GLOBALS['TL_LANG']['tl_nc_notification']['type']['newsletter-notify'] = 'Newsletter-Notification';
+$GLOBALS['TL_LANG']['tl_nc_notification']['type']['on-subscription-activation'] = array('Notify on newsletter subscription activation', 'Send notitification on newsletter subscription activation.');

@@ -20,6 +20,7 @@ Contao\CoreBundle\DataContainer\PaletteManipulator::create()
 $GLOBALS['TL_DCA']['tl_newsletter_channel']['palettes']['__selector__'][] = 'notifyOnSubscriptionActivation';
 $GLOBALS['TL_DCA']['tl_newsletter_channel']['subpalettes']['notifyOnSubscriptionActivation'] = 'onSubscriptionActivationNotification';
 
+// Fields
 $GLOBALS['TL_DCA']['tl_newsletter_channel']['fields']['notifyOnSubscriptionActivation'] = array(
     'label'     => &$GLOBALS['TL_LANG']['tl_newsletter_channel']['notifyOnSubscriptionActivation'],
     'exclude'   => true,

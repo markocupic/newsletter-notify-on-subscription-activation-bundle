@@ -28,6 +28,7 @@ class Plugin implements BundlePluginInterface
         return [
             BundleConfig::create('Markocupic\NewsletterNotifyOnSubscriptionActivationBundle\MarkocupicNewsletterNotifyOnSubscriptionActivationBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
+                ->setLoadAfter(['Contao\NewsletterBundle\ContaoNewsletterBundle'])
         ];
     }
 }
